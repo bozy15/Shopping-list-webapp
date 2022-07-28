@@ -18,7 +18,24 @@
         {% for item in items %}
         <tr>
             <!-- Name of the items -->
+            {% if item.complete %}
+            <td><strike>{{ item.name }}</strike></td>
+            {% else %}
             <td>{{ item.name }}</td>
+            {% endif %}
+            <!-- Toggle button -->
+            <td>
+                <a href="/toggle_item/{{ item.id }}">
+                    <button type="button" class="btn btn-success">Done</button>
+                </a>
+            </td>
+                
+            <!-- Edit button -->
+            <td>
+                <a href="/edit_item/{{ item.id }}">
+                    <button type="button" class="btn btn-primary">Edit</button>
+                </a>
+            </td>
         </tr>
         <!-- If the list is empty -->
         {% empty %}
