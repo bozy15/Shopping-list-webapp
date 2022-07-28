@@ -57,3 +57,19 @@ def toggle_item(request, item_id):
     item.save()
     # Redirect to the list page
     return redirect(index)
+
+# View to delete an item from the list
+def delete_item(request, item_id):
+    # Get item or return 404 error
+    item = get_object_or_404(Item, id=item_id)
+    # Delete the item
+    item.delete()
+    # Redirect to the list page
+    return redirect(index)
+
+# View to delete all items from the list
+def delete_all(request):
+    # Delete all items
+    Item.objects.all().delete()
+    # Redirect to the list page
+    return redirect(index)
