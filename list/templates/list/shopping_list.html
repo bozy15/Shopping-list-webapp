@@ -8,11 +8,20 @@
     <!-- Bootstrap CSS: https://getbootstrap.com/docs/5.2/getting-started/introduction/ -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <!-- Static CSS -->
+    <link rel="stylesheet" href="static\css\style.css">
     <title>My Shopping List</title>
 </head>
 
 <body>
     <h1>Items I need to buy</h1>
+    {% if request.user.is_authenticated %}
+    <!-- Button to logout -->
+    <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
+    {% else %}
+    <!-- Button to login in using Google -->
+    <a href="http://127.0.0.1:8000/accounts/google/login/" class="btn btn-success">Login</a>
+    {% endif %}
     <!-- Table to display shopping list items -->
     <table class="table table-hover">
         {% for item in items %}
@@ -28,7 +37,7 @@
                 <a href="/toggle_item/{{ item.id }}">
                     <button type="button" class="btn btn-success">Done</button>
                 </a>
-            </td>       
+            </td>
             <!-- Edit button -->
             <td>
                 <a href="/edit_item/{{ item.id }}">
@@ -53,6 +62,7 @@
     <a href="/add_item" class="btn btn-primary">Add Item</a>
     <!-- Button to delete all items from the list -->
     <a href="/delete_all" class="btn btn-danger">Delete All</a>
+
 
     <!-- Bootstrap JS: https://getbootstrap.com/docs/5.2/getting-started/introduction/ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"

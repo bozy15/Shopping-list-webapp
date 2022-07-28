@@ -48,6 +48,7 @@ def edit_item(request, item_id):
     context = {"form": form}
     return render(request, "list/edit_item.html", context)
 
+
 # View to toggle an item's "completed" status
 def toggle_item(request, item_id):
     # Get item or return 404 error
@@ -58,6 +59,7 @@ def toggle_item(request, item_id):
     # Redirect to the list page
     return redirect(index)
 
+
 # View to delete an item from the list
 def delete_item(request, item_id):
     # Get item or return 404 error
@@ -67,9 +69,18 @@ def delete_item(request, item_id):
     # Redirect to the list page
     return redirect(index)
 
+
 # View to delete all items from the list
 def delete_all(request):
     # Delete all items
     Item.objects.all().delete()
     # Redirect to the list page
     return redirect(index)
+
+
+# Check if user is logged in
+def is_logged_in(request):
+    if request.user.is_authenticated:
+        return True
+    else:
+        return False
