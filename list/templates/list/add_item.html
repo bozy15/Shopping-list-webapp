@@ -7,6 +7,16 @@
     <title>Add An item</title>
 </head>
 <body>
-    <h1>Hello, World! this is my add item page</h1>
+    <h1>Add an item to your Shopping list</h1>
+    <!-- Add item form  -->
+    <form action="add_item" method="POST">
+        <!-- Security token -->
+        {% csrf_token %}
+        <!-- Django form template -->
+        {% load crispy_forms_tags %}
+        {{ form|crispy }}
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary">Add Item</button>
+    </form>
 </body>
 </html>

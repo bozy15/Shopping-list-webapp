@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "shopping_list",
-    "list"
+    "list",
+    "crispy_forms",
+    "crispy_bootstrap5",
 
 ]
 
@@ -53,6 +55,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'shopping_list.urls'
+
+# Crispy forms template packs
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 TEMPLATES = [
     {

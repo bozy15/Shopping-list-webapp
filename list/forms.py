@@ -5,4 +5,4 @@ class ItemForm(forms.ModelForm):
     class Meta:
         # specify the model to use
         model = Item
-        fields = ["name", "complete"]
+        fields = ["name"]
