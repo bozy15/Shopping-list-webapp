@@ -84,3 +84,5 @@ def is_logged_in(request):
         return True
     else:
         return False
+
+

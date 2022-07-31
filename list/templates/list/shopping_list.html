@@ -14,54 +14,70 @@
 </head>
 
 <body>
-    <h1>Items I need to buy</h1>
-    {% if request.user.is_authenticated %}
-    <!-- Button to logout -->
-    <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
-    {% else %}
-    <!-- Button to login in using Google -->
-    <a href="http://127.0.0.1:8000/accounts/google/login/" class="btn btn-success">Login</a>
-    {% endif %}
-    <!-- Table to display shopping list items -->
-    <table class="table table-hover">
-        {% for item in items %}
-        <tr>
-            <!-- Name of the items -->
-            {% if item.complete %}
-            <td><strike>{{ item.name }}</strike></td>
-            {% else %}
-            <td>{{ item.name }}</td>
-            {% endif %}
-            <!-- Toggle button -->
-            <td>
-                <a href="/toggle_item/{{ item.id }}">
-                    <button type="button" class="btn btn-success">Done</button>
-                </a>
-            </td>
-            <!-- Edit button -->
-            <td>
-                <a href="/edit_item/{{ item.id }}">
-                    <button type="button" class="btn btn-primary">Edit</button>
-                </a>
-            </td>
-            <!-- Delete button -->
-            <td>
-                <a href="/delete_item/{{ item.id }}">
-                    <button type="button" class="btn btn-danger">Delete</button>
-                </a>
-            </td>
-        </tr>
-        <!-- If the list is empty -->
-        {% empty %}
-        <tr>
-            <td>No items in the list</td>
-        </tr>
-        {% endfor %}
-    </table>
-    <!-- Button to add new items to the list -->
-    <a href="/add_item" class="btn btn-primary">Add Item</a>
-    <!-- Button to delete all items from the list -->
-    <a href="/delete_all" class="btn btn-danger">Delete All</a>
+    <div class="container justify-content-center">
+        <div class="row justify-content-end">
+            <div class="col-2 mt-3 me-2">
+                {% if request.user.is_authenticated %}
+                <!-- Button to logout -->
+                <a href="{% url 'account_logout' %}" class="btn btn-primary">Logout</a>
+                {% else %}
+                <!-- Button to login in using Google -->
+                <a href="http://127.0.0.1:8000/accounts/google/login/" class="btn btn-success">Login</a>
+                {% endif %}
+            </div>
+            <h1 class="pb-3 mb-4">Items I need to buy</h1>
+        </div>
+        <div class="row">
+            <!-- Table to display shopping list items -->
+            <table class="table table-primary table-hover">
+                {% for item in items %}
+                <tr>
+                    <!-- Name of the items -->
+                    {% if item.complete %}
+                    <td><strike>{{ item.name }}</strike></td>
+                    {% else %}
+                    <td>{{ item.name }}</td>
+                    {% endif %}
+                    <!-- Toggle button -->
+                    <td>
+                        <a href="/toggle_item/{{ item.id }}">
+                            <button type="button" class="btn btn-success">Done</button>
+                        </a>
+                    </td>
+                    <!-- Edit button -->
+                    <td>
+                        <a href="/edit_item/{{ item.id }}">
+                            <button type="button" class="btn btn-primary">Edit</button>
+                        </a>
+                    </td>
+                    <!-- Delete button -->
+                    <td>
+                        <a href="/delete_item/{{ item.id }}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                <!-- If the list is empty -->
+                {% empty %}
+                <tr>
+                    <td>No items in the list</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <!-- Button to add new items to the list -->
+                    <a href="/add_item" class="btn btn-primary">Add Item</a>
+                    <!-- Button to delete all items from the list -->
+                    <a href="/delete_all" class="btn btn-danger">Delete All</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
 
 
     <!-- Bootstrap JS: https://getbootstrap.com/docs/5.2/getting-started/introduction/ -->

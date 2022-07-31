@@ -13,18 +13,20 @@
     <title>Edit An item</title>
 </head>
 
-<body>
-    <h1>Edit an item in your Shopping list</h1>
-    <!-- Edit item form  -->
-    <form method="POST">
-        <!-- Security token -->
-        {% csrf_token %}
-        <!-- Django form template -->
-        {% load crispy_forms_tags %}
-        {{ form|crispy }}
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary">Update Item</button>
-    </form>
+<body class="text-center">
+    <div class="container justify-content-center">
+        <h1 class="pt-5 my-2">Edit an item in your Shopping list</h1>
+        <!-- Edit item form  -->
+        <form method="POST">
+            <!-- Security token -->
+            {% csrf_token %}
+            <!-- Django form template -->
+            {% load crispy_forms_tags %}
+            {{ form|crispy }}
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary">Update Item</button>
+        </form>
+    </div>
     <!-- Bootstrap JS: https://getbootstrap.com/docs/5.2/getting-started/introduction/ -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
