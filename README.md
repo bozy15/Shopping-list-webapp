@@ -10,7 +10,7 @@ This is a simple shopping list webapp. It is a single page application that allo
 
 ## Credits
 
-- How to add google sign in to a wedapp using Django was found here [**here**](https://dev.to/mdrhmn/django-google-authentication-using-django-allauth-18f8)
+- How to add google sign in to a wedapp using Django was found [**here**](https://dev.to/mdrhmn/django-google-authentication-using-django-allauth-18f8)
 
 ## Tech used
 
